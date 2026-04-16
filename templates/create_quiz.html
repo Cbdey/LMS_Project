@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Create Quiz</h3>
+
+<div class="card shadow-sm p-4">
+
+<form method="POST">
+
+<label>Select Course</label>
+<select name="course_id" class="form-control mb-3">
+
+{% for course in courses %}
+<option value="{{ course.id }}">
+{{ course.title }}
+</option>
+{% endfor %}
+
+</select>
+
+<input name="question" placeholder="Question"
+class="form-control mb-3">
+
+<input name="option1" placeholder="Option 1"
+class="form-control mb-3">
+
+<input name="option2" placeholder="Option 2"
+class="form-control mb-3">
+
+<input name="option3" placeholder="Option 3"
+class="form-control mb-3">
+
+<input name="option4" placeholder="Option 4"
+class="form-control mb-3">
+
+<input name="correct_answer"
+placeholder="Correct Answer"
+class="form-control mb-3">
+
+<button class="btn btn-success">
+Save Quiz
+</button>
+
+</form>
+
+</div>
+
+{% endblock %}

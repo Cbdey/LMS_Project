@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>LMS Login</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+height:100vh;
+margin:0;
+font-family:'Inter',sans-serif;
+background:linear-gradient(120deg,#eef2ff,#e0e7ff,#c7d2fe);
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+/* MAIN FRAME */
+
+.container-box{
+width:900px;
+height:560px;
+background:white;
+border-radius:26px;
+overflow:hidden;
+display:flex;
+border:4px solid #e0e7ff;
+box-shadow:0 35px 70px rgba(0,0,0,.18);
+position:relative;
+z-index:2;
+}
+
+/* LEFT PANEL */
+
+.left-section{
+flex:1;
+background:linear-gradient(140deg,#4f46e5,#6366f1);
+color:white;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:60px;
+text-align:center;
+}
+
+.left-section img{
+width:280px;
+margin-bottom:25px;
+}
+
+.left-section h2{
+font-weight:700;
+margin-bottom:10px;
+}
+
+.left-section p{
+opacity:.85;
+font-size:15px;
+max-width:320px;
+}
+
+/* RIGHT PANEL */
+
+.right-section{
+flex:1;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#ffffff;
+}
+
+/* LOGIN CARD */
+
+.login-card{
+width:360px;
+}
+
+.login-card h3{
+font-weight:700;
+margin-bottom:30px;
+}
+
+/* FLOATING INPUT STYLE */
+
+.form-floating input{
+border-radius:12px;
+height:52px;
+}
+
+/* BUTTON STYLE */
+
+.login-btn{
+background:linear-gradient(135deg,#4f46e5,#6366f1);
+border:none;
+height:50px;
+border-radius:12px;
+font-weight:600;
+transition:.25s;
+}
+
+.login-btn:hover{
+transform:translateY(-2px);
+box-shadow:0 12px 25px rgba(79,70,229,.35);
+}
+
+/* PASSWORD TOGGLE */
+
+.password-wrapper{
+position:relative;
+}
+
+.eye-icon{
+position:absolute;
+top:50%;
+right:15px;
+transform:translateY(-50%);
+cursor:pointer;
+font-size:14px;
+color:#6b7280;
+}
+
+/* LINKS */
+
+.links{
+display:flex;
+justify-content:space-between;
+margin-top:12px;
+font-size:13px;
+}
+
+.links a{
+text-decoration:none;
+color:#4f46e5;
+font-weight:500;
+}
+
+.links a:hover{
+text-decoration:underline;
+}
+
+/* FOOTER NOTE */
+
+.footer-note{
+text-align:center;
+font-size:12px;
+color:#9ca3af;
+margin-top:18px;
+}
+.floating-shape{
+position:absolute;
+border-radius:50%;
+filter:blur(60px);
+opacity:.35;
+z-index:1;
+animation:float 8s infinite ease-in-out alternate;
+}
+
+.shape1{
+width:260px;
+height:260px;
+background:#6366f1;
+top:80px;
+left:120px;
+}
+
+.shape2{
+width:200px;
+height:200px;
+background:#818cf8;
+bottom:100px;
+right:140px;
+}
+
+.shape3{
+width:180px;
+height:180px;
+background:#a5b4fc;
+top:40%;
+left:50%;
+transform:translate(-50%,-50%);
+}
+
+@keyframes float{
+from{
+transform:translateY(0px);
+}
+to{
+transform:translateY(25px);
+}
+}
+
+</style>
+
+</head>
+
+<body>
+<div class="floating-shape shape1"></div>
+<div class="floating-shape shape2"></div>
+<div class="floating-shape shape3"></div>
+<div class="container-box">
+
+<!-- LEFT SIDE -->
+
+<div class="left-section">
+
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+
+<h2>Smart Learning Starts Here</h2>
+
+<p>
+Access courses, quizzes, progress tracking and certificates inside your LMS portal.
+</p>
+
+</div>
+
+
+<!-- RIGHT SIDE -->
+
+<div class="right-section">
+
+<form method="POST" class="login-card">
+
+<h3>Sign in to your account</h3>
+
+
+<div class="form-floating mb-3">
+
+<input
+type="email"
+name="email"
+class="form-control"
+placeholder="Email"
+required>
+
+<label>Email address</label>
+
+</div>
+
+
+<div class="form-floating mb-2 password-wrapper">
+
+<input
+type="password"
+name="password"
+id="password"
+class="form-control"
+placeholder="Password"
+required>
+
+<label>Password</label>
+
+<span class="eye-icon"
+onclick="togglePassword()">
+👁
+</span>
+
+</div>
+
+
+<button class="btn login-btn w-100 text-white">
+
+Login
+
+</button>
+
+
+<div class="links">
+
+<a href="/register">Create account</a>
+
+<a href="/forgot-password">Forgot password?</a>
+
+</div>
+
+
+<div class="footer-note">
+
+Secure LMS access portal
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+
+<script>
+
+function togglePassword(){
+
+let field=document.getElementById("password");
+
+if(field.type==="password"){
+field.type="text";
+}
+else{
+field.type="password";
+}
+
+}
+
+</script>
+
+</body>
+</html>

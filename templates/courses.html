@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3 class="mb-4 fw-semibold">Course Catalog</h3>
+
+<div class="row g-4">
+
+{% for course in courses %}
+
+<div class="col-lg-4 col-md-6">
+
+<div class="module-card h-100 d-flex flex-column justify-content-between">
+
+<!-- COURSE TITLE -->
+
+<div>
+
+<h5 class="fw-semibold mb-2">
+
+{{ course.title }}
+
+{% if course.approved %}
+
+<span class="badge bg-success ms-2">
+Approved
+</span>
+
+{% else %}
+
+<span class="badge bg-warning text-dark ms-2">
+Pending
+</span>
+
+{% endif %}
+
+</h5>
+
+
+<!-- INSTRUCTOR -->
+
+<p class="text-muted small mb-2">
+
+Instructor ID: {{ course.instructor_id }}
+
+</p>
+
+
+<!-- DESCRIPTION -->
+
+<p class="mb-3">
+
+{{ course.description[:140] }}...
+
+</p>
+
+
+<!-- VIDEO PREVIEW -->
+
+{% if course.video %}
+
+<video width="100%" controls class="rounded mb-3 shadow-sm">
+
+<source src="{{ url_for('static', filename='uploads/' + course.video) }}">
+
+</video>
+
+{% endif %}
+
+</div>
+
+
+<!-- ACTION BUTTONS -->
+
+<div class="d-flex flex-wrap gap-2 mt-2">
+
+
+<!-- ================= STUDENT ACTIONS ================= -->
+
+{% if current_user.role == "student" %}
+
+{% if course.id in enrolled_ids %}
+
+<button class="btn btn-success btn-sm">
+Enrolled ✔
+</button>
+
+<a href="/quiz/{{ course.id }}"
+class="btn btn-outline-success btn-sm">
+Attempt Quiz
+</a>
+
+<a href="/certificate/{{ course.id }}"
+class="btn btn-outline-dark btn-sm">
+Download Certificate
+</a>
+
+{% else %}
+
+<a href="/enroll/{{ course.id }}"
+class="btn btn-primary btn-sm">
+Enroll Course
+</a>
+
+{% endif %}
+
+
+{% if course.notes %}
+
+<a href="{{ url_for('static', filename='uploads/' + course.notes) }}"
+class="btn btn-outline-secondary btn-sm"
+download>
+Download Notes
+</a>
+
+{% endif %}
+
+{% endif %}
+
+
+
+<!-- ================= INSTRUCTOR ACTIONS ================= -->
+
+{% if current_user.role == "instructor" %}
+
+<a href="/edit-course/{{ course.id }}"
+
+class="btn btn-warning btn-sm">
+
+Edit
+
+</a>
+
+<a href="/delete-course/{{ course.id }}"
+
+class="btn btn-danger btn-sm">
+
+Delete
+
+</a>
+
+
+{% if course.notes %}
+
+<a href="{{ url_for('static', filename='uploads/' + course.notes) }}"
+
+class="btn btn-outline-secondary btn-sm"
+
+download>
+
+View Notes
+
+</a>
+
+{% endif %}
+
+{% endif %}
+
+
+
+<!-- ================= ADMIN ACTIONS ================= -->
+
+{% if current_user.role == "admin" %}
+
+{% if not course.approved %}
+
+<a href="/approve/{{ course.id }}"
+
+class="btn btn-success btn-sm">
+
+Approve
+
+</a>
+
+{% else %}
+
+<span class="text-success fw-semibold">
+
+Approved ✔
+
+</span>
+
+{% endif %}
+
+{% endif %}
+
+
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>User Management Panel</h3>
+
+<table class="table table-bordered shadow-sm">
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Email</th>
+<th>Role</th>
+<th>Action</th>
+</tr>
+
+{% for user in users %}
+
+<tr>
+
+<td>{{ user.id }}</td>
+<td>{{ user.username }}</td>
+<td>{{ user.email }}</td>
+<td>{{ user.role }}</td>
+
+<td>
+
+<a href="/delete-user/{{ user.id }}"
+class="btn btn-danger btn-sm">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

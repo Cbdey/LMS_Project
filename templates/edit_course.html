@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Edit Course</h3>
+
+<div class="card shadow-sm p-4">
+
+<form method="POST">
+
+<label>Title</label>
+<input name="title"
+value="{{ course.title }}"
+class="form-control mb-3">
+
+<label>Description</label>
+<textarea name="description"
+class="form-control mb-3">
+
+{{ course.description }}
+
+</textarea>
+
+<button class="btn btn-primary">
+Update Course
+</button>
+
+</form>
+
+</div>
+
+{% endblock %}

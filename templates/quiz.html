@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3 class="mb-4">Course Quiz</h3>
+
+<form method="POST">
+
+{% for quiz in quizzes %}
+
+<div class="card shadow-sm mb-4 p-4">
+
+<h5>{{ quiz.question }}</h5>
+
+<hr>
+
+<label>
+<input type="radio"
+name="{{ quiz.id }}"
+value="{{ quiz.option1 }}">
+{{ quiz.option1 }}
+</label><br>
+
+<label>
+<input type="radio"
+name="{{ quiz.id }}"
+value="{{ quiz.option2 }}">
+{{ quiz.option2 }}
+</label><br>
+
+<label>
+<input type="radio"
+name="{{ quiz.id }}"
+value="{{ quiz.option3 }}">
+{{ quiz.option3 }}
+</label><br>
+
+<label>
+<input type="radio"
+name="{{ quiz.id }}"
+value="{{ quiz.option4 }}">
+{{ quiz.option4 }}
+</label>
+
+</div>
+
+{% endfor %}
+
+<button class="btn btn-success">
+
+Submit Quiz
+
+</button>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,103 @@
+body{
+font-family:'Inter',sans-serif;
+background:#f8fafc;
+color:#0f172a;
+}
+
+/* Sidebar */
+
+.sidebar{
+width:260px;
+height:100vh;
+position:fixed;
+background:#0f172a;
+padding:30px 22px;
+}
+
+.logo{
+color:white;
+font-size:20px;
+font-weight:600;
+margin-bottom:30px;
+}
+
+.section-title{
+color:#94a3b8;
+font-size:12px;
+margin-top:20px;
+margin-bottom:8px;
+text-transform:uppercase;
+}
+
+.sidebar a{
+display:block;
+color:#e2e8f0;
+padding:12px;
+border-radius:10px;
+text-decoration:none;
+margin-bottom:6px;
+font-size:15px;
+transition:.25s ease;
+}
+
+.sidebar a:hover{
+background:#1e293b;
+padding-left:18px;
+}
+
+/* Main area */
+
+.main{
+margin-left:260px;
+padding:40px;
+}
+
+/* Header */
+
+.header{
+background:white;
+padding:18px 26px;
+border-radius:14px;
+box-shadow:0px 8px 24px rgba(0,0,0,.04);
+margin-bottom:28px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+/* Cards */
+
+.module-card{
+background:white;
+padding:26px;
+border-radius:16px;
+box-shadow:0px 10px 30px rgba(0,0,0,.05);
+transition:.3s ease;
+}
+
+.module-card:hover{
+transform:translateY(-6px);
+}
+
+/* Buttons */
+
+.btn{
+border-radius:8px;
+font-weight:500;
+}
+
+/* Tables */
+
+table{
+background:white;
+border-radius:14px;
+overflow:hidden;
+}
+
+/* Badge styling */
+
+.badge{
+padding:6px 10px;
+border-radius:8px;
+font-size:12px;
+}

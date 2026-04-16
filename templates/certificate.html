@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+
+.certificate-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 60px;
+    border: 12px solid #0d6efd;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.15);
+}
+
+.certificate-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #0d6efd;
+}
+
+.certificate-subtitle {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.student-name {
+    font-size: 36px;
+    font-weight: 600;
+    margin: 25px 0;
+}
+
+.course-name {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.signature-line {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.signature-box {
+    text-align: center;
+}
+
+.signature-box hr {
+    width: 200px;
+    border: 1px solid black;
+}
+
+</style>
+
+
+<div class="container mt-5">
+
+<div class="certificate-container text-center">
+
+<div class="certificate-title">
+Certificate of Completion
+</div>
+
+<p class="certificate-subtitle">
+This certificate is proudly awarded to
+</p>
+
+<div class="student-name">
+{{ current_user.username }}
+</div>
+
+<p class="certificate-subtitle">
+for successfully completing the course
+</p>
+
+<div class="course-name">
+{{ course.title }}
+</div>
+
+<p class="certificate-subtitle mt-4">
+Issued by LMS Learning Platform
+</p>
+
+
+<div class="signature-line">
+
+<div class="signature-box">
+<hr>
+Instructor Signature
+</div>
+
+<div class="signature-box">
+<hr>
+Date: {{ current_user.id }}{{ course.id }}{{ loop.index if loop else '' }}
+</div>
+
+</div>
+
+
+<div class="mt-4">
+
+<button onclick="window.print()" class="btn btn-dark">
+Download Certificate (PDF)
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

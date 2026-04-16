@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3 class="mb-4">Student Evaluation Panel</h3>
+
+<div class="card shadow-sm p-4">
+
+<table class="table table-bordered table-hover">
+
+<thead class="table-dark">
+
+<tr>
+<th>Student Name</th>
+<th>Course</th>
+<th>Score</th>
+<th>Status</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for student, course, score in results %}
+
+<tr>
+
+<td>{{ student }}</td>
+
+<td>{{ course }}</td>
+
+<td>{{ score }}%</td>
+
+<td>
+
+{% if score >= 50 %}
+
+<span class="badge bg-success">
+Passed
+</span>
+
+{% else %}
+
+<span class="badge bg-danger">
+Needs Improvement
+</span>
+
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+{% endblock %}

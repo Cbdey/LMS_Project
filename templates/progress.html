@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3 class="mb-4 fw-semibold">Your Learning Progress</h3>
+
+<div class="row g-4">
+
+{% for item in results %}
+
+{% set result = item[0] %}
+{% set title = item[1] %}
+
+<div class="col-lg-6">
+
+<div class="module-card">
+
+<h5 class="fw-semibold mb-3">
+{{ title }}
+</h5>
+
+
+<p class="mb-2">
+Score:
+<strong>{{ result.score }}%</strong>
+</p>
+
+
+<!-- Progress Bar -->
+
+<div class="progress mb-3"
+style="height:22px; border-radius:10px;">
+
+<div class="progress-bar progress-bar-striped progress-bar-animated
+
+{% if result.score >= 75 %}
+bg-success
+
+{% elif result.score >= 50 %}
+bg-warning
+
+{% else %}
+bg-danger
+
+{% endif %}"
+
+role="progressbar"
+data-width="{{ result.score }}">
+
+{{ result.score }}%
+
+</div>
+
+</div>
+
+
+<!-- Status + Buttons -->
+
+<div class="d-flex justify-content-between align-items-center">
+
+
+{% if result.score >= 50 %}
+
+<span class="badge bg-success px-3 py-2">
+Course Completed ✔
+</span>
+
+<a href="/certificate/{{ result.course_id }}"
+class="btn btn-outline-dark btn-sm">
+
+Download Certificate
+
+</a>
+
+
+{% else %}
+
+<span class="badge bg-danger px-3 py-2">
+Retry Quiz Required
+</span>
+
+<a href="/quiz/{{ result.course_id }}"
+class="btn btn-outline-primary btn-sm">
+
+Retry Quiz
+
+</a>
+
+{% endif %}
+
+
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+
+<script>
+
+document.querySelectorAll(".progress-bar").forEach(function(bar){
+
+bar.style.width = bar.getAttribute("data-width") + "%";
+
+});
+
+</script>
+
+
+{% endblock %}
