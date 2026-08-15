@@ -205,16 +205,21 @@ LMS_Project/
 
 ## 🌐 Live Demo
 
-Coming soon after deployment...
+🚀 **[E-Learning LMS Login](https://lms-project-33pv.onrender.com/login)**
+
+Visit the live application to explore the platform!
 
 ## 🚀 Deployment
 
-Deploy on:
-- **Heroku** - Full backend support
-- **Railway** - Python-friendly platform
-- **Render** - Easy deployment
+✅ **Currently Deployed on Render**
 
-*Netlify is for frontend only; backend requires separate hosting*## 📧 Contact & Author
+- 🔗 Live URL: https://lms-project-33pv.onrender.com/login
+- Platform: Render (Python-friendly, free tier available)
+- Status: Active and running
+
+Other deployment options:
+- **Heroku** - Full backend support
+- **Railway** - Alternative Python hosting## 📧 Contact & Author
 
 **Dey Chandrabhanu**  
 📧 Email: deychandrabhanu6@gmail.com  
